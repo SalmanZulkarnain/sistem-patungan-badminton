@@ -39,11 +39,11 @@ $participants = viewParticipants();
                         <td><?php echo $key + 1; ?></td>
                         <td><?php echo $participant['participant_id']; ?></td>
                         <td><?php echo $participant['name']; ?></td>
-                        <td><?php echo $participant['amount_paid']; ?></td>
+                        <td>Rp<?php echo number_format($participant['amount_paid']); ?></td>
                         <td><?php echo $participant['purpose']; ?></td>
                         <td><?php echo $participant['match_id']; ?></td>
                         <td><a href="index.php?delete=<?php echo $match['match_id']; ?>"
-                                onclick="confirm('Apakah yakin pengen hapus?')">Hapus</a></td>
+                            onclick="confirm('Apakah yakin pengen hapus?')">Hapus</a></td>
                     </tr>
                 <?php } ?>
             </tbody>

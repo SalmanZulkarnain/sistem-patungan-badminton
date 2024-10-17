@@ -21,7 +21,7 @@ addParticipants();
                     <label for="name">Nama:</label>
                     <input type="text" id="name" name="name">
         
-                </div>
+                </div>  
                 
                 <div class="input-group">
                     <label for="amount_paid">Jumlah Dibayar:</label>

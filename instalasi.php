@@ -24,7 +24,8 @@ $sql_buat_table_matches = "CREATE TABLE IF NOT EXISTS matches
 (
 match_id INT PRIMARY KEY AUTO_INCREMENT,
 date DATE,
-time VARCHAR(50),
+time_awal VARCHAR(50),
+time_akhir VARCHAR(50),
 location VARCHAR(255),
 total_amount INT
 )";

@@ -36,7 +36,7 @@ deleteMatch();
                 <td><?php echo $key + 1; ?></td>
                 <td><?php echo $match['match_id']; ?></td>
                 <td><?php echo $match['date']; ?></td>
-                <td><?php echo $match['time']; ?></td>
+                <td><?php echo $match['time_awal']; ?> - <?php echo $match['time_akhir']; ?></td>
                 <td><?php echo $match['location']; ?></td>
                 <td>Rp<?php echo number_format($match['total_amount']); ?></td>
                 <td><a href="detail.php">Detail</a></td>

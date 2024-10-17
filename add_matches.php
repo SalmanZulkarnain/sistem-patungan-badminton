@@ -2,7 +2,7 @@
 require 'config.php';
 require 'functions.php';
 
-addMatches();
+$pesan = addMatches();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,14 +17,19 @@ addMatches();
     <div class="container">
         <h2>Tambah Pertandingan</h2>
         <div class="form-container">
+            <?php echo $pesan; ?>
         <form action="add_matches.php" method="POST">
             <div class="input-group">
                 <label for="date">Tanggal:</label>
                 <input type="date" id="date" name="date">
             </div>
             <div class="input-group">
-                <label for="time">Waktu:</label>
-                <input type="time" id="time" name="time">
+                <label for="time_awal">Waktu Awal:</label>
+                <input type="time" id="time_awal" name="time_awal">
+            </div>
+            <div class="input-group">
+                <label for="time_akhir">Waktu Akhir:</label>
+                <input type="time" id="time_akhir" name="time_akhir">
             </div>
             <div class="input-group">
                 <label for="location">Lokasi:</label>

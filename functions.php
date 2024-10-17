@@ -7,19 +7,35 @@ function addMatches() {
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $date = $_POST['date'];
-        $time = $_POST['time'];
+        $time_awal = $_POST['time_awal'];
+        $time_akhir = $_POST['time_akhir'];
         $location = $_POST['location'];
         $total_amount = $_POST['total_amount'];
-    
-        if (!empty($date) && !empty($time) && !empty($location) && !empty($total_amount)) {
-            $sql = "INSERT INTO matches (date, time, location, total_amount) VALUES ('$date', '$time', '$location', $total_amount)";
+
+        $pesan = '';
+        if (!empty($date) && !empty($time_awal) && !empty($time_akhir) && !empty($location) && !empty($total_amount)) {
+            if($time_akhir <= $time_awal) {
+                $pesan = "Waktu akhir harus setelah waktu awal";
+                return $pesan;
+            }
+
+            $sql = "INSERT INTO matches (date, time_awal, time_akhir, location, total_amount) VALUES (?, ?, ?, ?, ?)";
+            $stmt = $db->prepare($sql);
             
-            if ($db->query($sql) === TRUE) {
+            // Check if prepare() failed
+            if ($stmt === false) {
+                die("Error preparing statement: " . $db->error);
+            }
+
+            // Bind parameters
+            $stmt->bind_param("ssssd", $date, $time_awal, $time_akhir, $location, $total_amount);
+            
+            if ($stmt->execute()) {
                 echo "Pertandingan berhasil ditambahkan.";
                 header('Location: index.php');
                 exit;
             } else {
-                echo "Error: " . $sql . "<br>" . $db->error;
+                echo "Error executing statement: " . $stmt->error;
             }
         } else {
             echo "Semua field harus diisi!";
@@ -41,7 +57,7 @@ function addParticipants() {
             
             if($db->query($sql) === TRUE) {
                 echo "Peserta Berhasil ditambahkan";
-                header('Location: index.php');
+                header('Location: detail.php');
                 exit;
             } else {
                 echo "Error: " . $sql . '<br>' . $db->error;

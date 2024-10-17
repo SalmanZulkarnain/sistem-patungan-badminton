@@ -17,10 +17,11 @@ body {
     flex-direction: column;
     max-width: 1440px;
     margin: auto;
-    padding: 30px;
+    padding: 0 30px;
 }
 
 .container h2 {
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -35,6 +36,7 @@ a {
 
 .a-container {
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 table {
@@ -80,6 +82,7 @@ td {
 
 input[type="text"],
 input[type="date"],
+input[type="time"],
 input[type="number"],
 select,
 textarea {
