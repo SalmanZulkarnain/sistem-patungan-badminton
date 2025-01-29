@@ -1,8 +1,6 @@
 <?php 
 
-$hostname = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'db_patungan_badminton';
-
-$db = new mysqli($hostname, $username , $password, $database);
+DEFINE("HOSTNAME", "localhost");
+DEFINE("USERNAME", "root");
+DEFINE("PASSWORD", "");
+DEFINE("DATABASE", "db_patungan_badminton");
